@@ -1,0 +1,23 @@
+---
+app:
+  # client_id: 30045
+  listen: 0.0.0.0:8099
+  client_id: 60004
+  logfile: e:\\app.log
+  loglevel: debug
+  logstdout: true
+  
+sms:
+  url: "http://127.0.0.1/smsweb/send4vpn.do"
+
+dingtalk:
+  url: "http://127.0.0.1:9999/RPC/IDingTalkService/sendTextMessage"
+
+smtp:
+  host: 127.0.0.1
+  port: 2525
+  username: event@example.com
+  password: 888888888
+  
+
+
