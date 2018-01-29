@@ -46,9 +46,9 @@ func (this *DingTalkMsg) send() error {
 	r.Body(body)
 	resp, err := r.String()
 	if err != nil {
-		logger.Error("send dingtalk fail", zap.String("alarmCode", this.alarmCode), zap.String("tos", this.tos), zap.String("content", this.content), zap.Error(err))
+		logger.Error("send dingtalk fail", zap.String("type", "dingtalk"), zap.String("alarmCode", this.alarmCode), zap.String("tos", this.tos), zap.String("content", this.content), zap.Error(err))
 		return err
 	}
-	logger.Debug("send dingtalk success", zap.String("alarmCode", this.alarmCode), zap.String("tos", this.tos), zap.String("content", this.content), zap.String("resp", resp))
+	logger.Debug("send dingtalk success", zap.String("type", "dingtalk"), zap.String("alarmCode", this.alarmCode), zap.String("tos", this.tos), zap.String("content", this.content), zap.String("resp", resp))
 	return nil
 }

@@ -32,9 +32,9 @@ func (this *SMSMsg) send() error {
 		r.Body(body)
 		resp, err := r.String()
 		if err != nil {
-			logger.Error("send sms fail", zap.String("to", to), zap.String("content", this.content), zap.Error(err))
+			logger.Error("send sms fail", zap.String("type", "sms"), zap.String("to", to), zap.String("content", this.content), zap.Error(err))
 		} else {
-			logger.Debug("send sms success", zap.String("to", to), zap.String("content", this.content), zap.String("resp", resp))
+			logger.Debug("send sms success", zap.String("type", "sms"), zap.String("to", to), zap.String("content", this.content), zap.String("resp", resp))
 		}
 	}
 

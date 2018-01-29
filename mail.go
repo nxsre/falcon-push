@@ -40,7 +40,7 @@ func (this *MailMsg) send() error {
 	// Send the email to Bob, Cora and Dan.
 	err := d.DialAndSend(m)
 	if err != nil {
-		logger.Error("send mail fail", zap.String("tos", this.tos), zap.String("subject", this.subject), zap.String("content", this.content), zap.Error(err))
+		logger.Error("send mail fail", zap.String("type", "mail"), zap.String("tos", this.tos), zap.String("subject", this.subject), zap.String("content", this.content), zap.Error(err))
 		return err
 	}
 	logger.Debug("send mail success", zap.String("tos", this.tos), zap.String("subject", this.subject), zap.String("content", this.content))
