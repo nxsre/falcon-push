@@ -15,8 +15,8 @@ type DingEntMsg struct {
 }
 
 func (this *DingEntMsg) send() error {
-	r := httplib.Post(cfg.DingEnt.URL).SetTimeout(5*time.Second, 30*time.Second)
 	for _, tel := range strings.Split(this.tos, ",") {
+		r := httplib.Post(cfg.DingEnt.URL).SetTimeout(5*time.Second, 30*time.Second)
 		data := struct {
 			Message  string `json:"message"`
 			Tel      string `json:"tel"`
