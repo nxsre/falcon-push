@@ -110,14 +110,49 @@ func DingTalkHandle(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "appid 或 tos 或 content 不能为空")
 		return
 	}
-	ding := &DingTalkMsg{
+	dingtalk := &DingTalkMsg{
 		alarmCode: alarmCode,
 		tos:       tos,
 		content:   content,
 	}
-	if err := ding.send(); err != nil {
-		fmt.Fprintln(w, "send ding failed:"+err.Error())
+	if err := dingtalk.send(); err != nil {
+		fmt.Fprintln(w, "send dingtalk failed:"+err.Error())
 		return
 	}
-	fmt.Fprintln(w, "send ding ok")
+	fmt.Fprintln(w, "send dingtalk ok")
+}
+
+func DingEntHandle(w http.ResponseWriter, r *http.Request) {
+	vals := r.URL.Query()
+	appid := vals.Get("appid")
+	tos := vals.Get("tos")
+	content := vals.Get("content")
+
+	if strings.ToUpper(r.Method) == "POST" {
+		r.ParseForm()
+		if appid == "" {
+			appid = r.Form.Get("appid")
+		}
+		if tos == "" {
+			tos = r.Form.Get("tos")
+		}
+		if content == "" {
+			content = r.Form.Get("content")
+		}
+	}
+
+	if appid == "" || tos == "" || content == "" {
+		logger.Error("必选参数不能为空", zap.String("appid", appid), zap.String("tos", tos), zap.String("content", content))
+		fmt.Fprintln(w, "appid 或 tos 或 content 不能为空")
+		return
+	}
+	dingent := &DingEntMsg{
+		content: content,
+		tos:     tos,
+	}
+	if err := dingent.send(); err != nil {
+		fmt.Fprintln(w, "send dingent failed:"+err.Error())
+		return
+	}
+	fmt.Fprintln(w, "send dingent ok")
 }

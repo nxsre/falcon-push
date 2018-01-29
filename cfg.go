@@ -10,6 +10,7 @@ import (
 type Cfg struct {
 	APP      APP      `yaml:"app"`
 	DingTalk DingTalk `yaml:"dingtalk"`
+	DingEnt  DingEnt  `yaml:"dingent"`
 	SMTP     SMTP     `yaml:"smtp"`
 	SMS      SMS      `yaml:"sms"`
 }
@@ -27,6 +28,10 @@ type SMS struct {
 }
 
 type DingTalk struct {
+	URL string `yaml:"url"`
+}
+
+type DingEnt struct {
 	URL string `yaml:"url"`
 }
 

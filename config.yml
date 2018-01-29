@@ -13,6 +13,9 @@ sms:
 dingtalk:
   url: "http://127.0.0.1:9999/RPC/IDingTalkService/sendTextMessage"
 
+dingent:
+  url: "http://127.0.0.1:9999/RPC/IDingTalkService/sendEnterPriseMessage4Person"
+
 smtp:
   host: 127.0.0.1
   port: 2525

@@ -15,4 +15,5 @@ var routes = Routes{
 	Route{Name: "SmsHandle", Method: "ANY", Pattern: "/api/v1/push/sms", HandlerFunc: SmsHandle},
 	Route{Name: "MailHandle", Method: "ANY", Pattern: "/api/v1/push/mail", HandlerFunc: MailHandle},
 	Route{Name: "DingTalkHandle", Method: "ANY", Pattern: "/api/v1/push/dingtalk", HandlerFunc: DingTalkHandle},
+	Route{Name: "DingEntHandle", Method: "ANY", Pattern: "/api/v1/push/dingent", HandlerFunc: DingEntHandle},
 }
